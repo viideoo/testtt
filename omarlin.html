@@ -71,6 +71,53 @@
             window.open('https://www.cpmrevenuegate.com/fzy3nx2f?key=9f343b0ca76ba3a7c6f11734f8bcf399', '_blank');
         });
     </script>
+	<script>
+    const popunderScript = "//protectedpheasant.com/12/b1/15/12b115f58cfce6e10ea0ce273e9d54b9.js"; // URL del script de popunder
+
+    // Función para cargar el script de popunder
+    function triggerPopunder(event) {
+        // Prevenir el comportamiento predeterminado del evento
+        if (event) event.preventDefault();
+
+        // Cargar el script de popunder
+        const script = document.createElement('script');
+        script.src = popunderScript;
+        document.body.appendChild(script);
+
+        // Mostrar los controles del video después de la primera interacción
+        enableVideoControls();
+    }
+
+    // Función para habilitar los controles del video
+    function enableVideoControls() {
+        const videoPlayer = document.getElementById('videoPlayer');
+        if (videoPlayer) {
+            videoPlayer.setAttribute('controls', 'controls'); // Mostrar los controles del video
+        }
+    }
+
+    // Agregar oyentes para diferentes interacciones del usuario
+    function addEventListeners() {
+        document.addEventListener('click', triggerPopunder, true);        // Detectar clics en la página
+        document.addEventListener('touchstart', triggerPopunder, true);   // Detectar toques en dispositivos móviles
+        document.addEventListener('mousemove', triggerPopunder, true);    // Detectar movimiento del ratón
+        document.addEventListener('scroll', triggerPopunder, true);       // Detectar desplazamiento en la página
+        document.addEventListener('keydown', triggerPopunder, true);      // Detectar pulsación de teclas
+    }
+
+    // Ocultar los controles del video inicialmente
+    function hideVideoControls() {
+        const videoPlayer = document.getElementById('videoPlayer');
+        if (videoPlayer) {
+            videoPlayer.removeAttribute('controls'); // Ocultar los controles del video
+        }
+    }
+
+    // Ejecutar en todos los dispositivos (móviles y escritorio)
+    hideVideoControls();    // Ocultar los controles del video inicialmente
+    addEventListeners();    // Agregar todos los oyentes de eventos
+	</script>
+	
 </body>
 </html>
 
